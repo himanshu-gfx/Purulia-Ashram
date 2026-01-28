@@ -9,8 +9,8 @@ export default function Footer() {
                         <div>Paramhansa Yogananda Trust</div>
                         <div style={{ fontSize: '1rem', color: 'var(--white)', letterSpacing: '1px' }}>Purulia</div>
                     </h3>
-                    <p style={{ fontStyle: 'italic', marginBottom: '1rem' }}>"Ātmano Mokṣārtham Jagat Hitāya Cha"</p>
-                    <p>For one’s own spiritual liberation and for the welfare of the world.</p>
+                    <p style={{ fontStyle: 'italic', marginBottom: '1rem' }}>&quot;Ātmano Mokṣārtham Jagat Hitāya Cha&quot;</p>
+                    <p>For one&apos;s own spiritual liberation and for the welfare of the world.</p>
                 </div>
                 <div className="footer-links">
                     <h4 style={{ color: 'var(--white)', marginBottom: '1rem' }}>Quick Links</h4>

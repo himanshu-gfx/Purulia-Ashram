@@ -4,6 +4,12 @@ import { impactSections } from '@/lib/db/schema';
 import { asc } from 'drizzle-orm';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Our Impact",
+    description: "Learn about the humanitarian and educational initiatives of the Paramhansa Yogananda Trust Ashram, Purulia. Empowering local communities through schools and healthcare.",
+};
 
 export default async function ImpactPage() {
     const dbSections = await db.select().from(impactSections).orderBy(asc(impactSections.createdAt));
@@ -68,12 +74,12 @@ export default async function ImpactPage() {
                                     </p>
                                     <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
                                         <div className="card" style={{ padding: '1.5rem', border: '1px solid rgba(0,0,0,0.1)', borderRadius: '15px' }}>
-                                            <h3 style={{ color: 'var(--primary)', fontSize: '1.2rem' }}>The Boys’ School</h3>
+                                            <h3 style={{ color: 'var(--primary)', fontSize: '1.2rem' }}>The Boys&apos; School</h3>
                                             <p style={{ fontWeight: 600, fontSize: '0.9rem', marginBottom: '0.5rem' }}>Established 1939</p>
                                             <p style={{ fontSize: '0.95rem' }}>Primary and secondary education with a focus on character building.</p>
                                         </div>
                                         <div className="card" style={{ padding: '1.5rem', border: '1px solid rgba(0,0,0,0.1)', borderRadius: '15px' }}>
-                                            <h3 style={{ color: 'var(--primary)', fontSize: '1.2rem' }}>The Girls’ School</h3>
+                                            <h3 style={{ color: 'var(--primary)', fontSize: '1.2rem' }}>The Girls&apos; School</h3>
                                             <p style={{ fontWeight: 600, fontSize: '0.9rem', marginBottom: '0.5rem' }}>Established 1958</p>
                                             <p style={{ fontSize: '0.95rem' }}>Empowering rural women through literacy and vocational support.</p>
                                         </div>
@@ -164,16 +170,16 @@ export default async function ImpactPage() {
                         <h2 style={{ color: 'var(--accent)' }}>YSS Centenary Outreach</h2>
                         <p style={{ maxWidth: '800px', margin: '0 auto', opacity: 0.9 }}>
                             In celebration of the 100-year journey of Yogada Satsanga Society of India (YSS),
-                            the Trust launched a major educational initiative to bring the "Art of Living"
+                            the Trust launched a major educational initiative to bring the &quot;Art of Living&quot;
                             teachings to the youth of West Bengal and Jharkhand.
                         </p>
                     </div>
 
                     <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem' }}>
                         <div>
-                            <h3 style={{ color: 'var(--accent)', fontSize: '1.5rem', marginBottom: '1.5rem' }}>The "Law of Success" Project</h3>
+                            <h3 style={{ color: 'var(--accent)', fontSize: '1.5rem', marginBottom: '1.5rem' }}>The &quot;Law of Success&quot; Project</h3>
                             <p style={{ marginBottom: '1.5rem' }}>
-                                A special initiative based on Paramhansa Yogananda's scientific principles of success.
+                                A special initiative based on Paramhansa Yogananda&apos;s scientific principles of success.
                                 We organized multi-phase programs in three major regional schools:
                             </p>
                             <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -191,21 +197,21 @@ export default async function ImpactPage() {
                                 </div>
                                 <div>
                                     <strong style={{ fontSize: '1.2rem', color: 'var(--primary-dark)' }}>Free Literature</strong>
-                                    <p>Hundreds of copies of "Law of Success" and "Autobiography of a Yogi" distributed to seekers.</p>
+                                    <p>Hundreds of copies of &quot;Law of Success&quot; and &quot;Autobiography of a Yogi&quot; distributed to seekers.</p>
                                 </div>
                                 <div>
                                     <strong style={{ fontSize: '1.2rem', color: 'var(--primary-dark)' }}>Youth Mentorship</strong>
-                                    <p>Focused on disseminating "plain living and high thinking" and the spirit of universal brotherhood.</p>
+                                    <p>Focused on disseminating &quot;plain living and high thinking&quot; and the spirit of universal brotherhood.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div style={{ marginTop: '4rem', padding: '2rem', border: '1px dashed rgba(255,255,255,0.3)', borderRadius: '20px' }}>
-                        <h4 style={{ color: 'var(--accent)', marginBottom: '1rem', textAlign: 'center' }}>"Kinship with Omnipresence"</h4>
+                        <h4 style={{ color: 'var(--accent)', marginBottom: '1rem', textAlign: 'center' }}>&quot;Kinship with Omnipresence&quot;</h4>
                         <p style={{ textAlign: 'center', fontStyle: 'italic' }}>
-                            "To Pago our deepest homage to our Guru, we have selected several schools for propagating
-                            the teachings of Guruji and the scientific techniques for self-realization to the younger generation."
+                            &quot;To Pago our deepest homage to our Guru, we have selected several schools for propagating
+                            the teachings of Guruji and the scientific techniques for self-realization to the younger generation.&quot;
                         </p>
                     </div>
                 </div>
@@ -226,14 +232,14 @@ export default async function ImpactPage() {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td style={{ padding: '1rem', border: '1px solid #ddd' }}>Boys’ School (Lakahanpur)</td>
+                                    <td style={{ padding: '1rem', border: '1px solid #ddd' }}>Boys&apos; School (Lakahanpur)</td>
                                     <td style={{ padding: '1rem', border: '1px solid #ddd' }}>1939</td>
                                     <td style={{ padding: '1rem', border: '1px solid #ddd' }}>Primary & Secondary Education</td>
                                 </tr>
                                 <tr style={{ backgroundColor: '#f9f9f9' }}>
-                                    <td style={{ padding: '1rem', border: '1px solid #ddd' }}>Girls’ School (Lakahanpur)</td>
+                                    <td style={{ padding: '1rem', border: '1px solid #ddd' }}>Girls&apos; School (Lakahanpur)</td>
                                     <td style={{ padding: '1rem', border: '1px solid #ddd' }}>1958</td>
-                                    <td style={{ padding: '1rem', border: '1px solid #ddd' }}>Women’s Literacy & Empowerment</td>
+                                    <td style={{ padding: '1rem', border: '1px solid #ddd' }}>Women&apos;s Literacy & Empowerment</td>
                                 </tr>
                                 <tr>
                                     <td style={{ padding: '1rem', border: '1px solid #ddd' }}>Polytechnic & ITI</td>

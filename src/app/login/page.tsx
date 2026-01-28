@@ -4,6 +4,7 @@
 import { useState, useEffect } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function LoginPage() {
     const [username, setUsername] = useState('');
@@ -35,7 +36,7 @@ export default function LoginPage() {
                 router.push('/admin');
                 router.refresh();
             }
-        } catch (err) {
+        } catch {
             setError('System error. Please contact administrator.');
         } finally {
             setLoading(false);
@@ -101,7 +102,7 @@ export default function LoginPage() {
 
                 <div style={footerSectionStyle}>
                     <p style={footerTextStyle}>&copy; {new Date().getFullYear()} Paramhansa Yogananda Trust</p>
-                    <a href="/" style={backLinkStyle}>← Back to Home</a>
+                    <Link href="/" style={backLinkStyle}>← Back to Home</Link>
                 </div>
             </main>
 

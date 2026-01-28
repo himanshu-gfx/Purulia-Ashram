@@ -3,6 +3,7 @@ import { db } from "@/lib/db";
 import { impactSections } from "@/lib/db/schema";
 import { updateImpactSection } from "@/lib/db/actions";
 import { Save } from "lucide-react";
+import ImageUploader from "../../../components/admin/ImageUploader";
 
 export default async function AdminImpactPage() {
     const sections = await db.select().from(impactSections).orderBy(impactSections.createdAt);
@@ -43,8 +44,7 @@ export default async function AdminImpactPage() {
                                 <textarea name="content" defaultValue={section.content || ''} style={{ ...inputStyle, minHeight: '150px' }}></textarea>
                             </div>
                             <div>
-                                <label style={labelStyle}>Image URL</label>
-                                <input type="text" name="imageUrl" defaultValue={section.imageUrl || ''} style={inputStyle} />
+                                <ImageUploader name="imageUrl" defaultValue={section.imageUrl || ''} label="Section Image" />
                             </div>
                             <div>
                                 <label style={labelStyle}>Video URL (YouTube Embed)</label>

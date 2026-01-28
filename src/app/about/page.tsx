@@ -1,5 +1,11 @@
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "The Lineage",
+    description: "Explore the spiritual lineage of Kriya Yoga masters, from Lord Krishna to Swami Bidyananda Giri, founder of the Paramhansa Yogananda Trust Ashram, Purulia.",
+};
 
 export default function AboutPage() {
     return (
@@ -45,7 +51,7 @@ export default function AboutPage() {
                                 <img src="/images/sri-yukteshwar-shrine.jpg" alt="Sw. Yukteshwar Giri" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                             </div>
                             <h3 style={{ color: 'var(--primary)' }}>Sw. Yukteshwar Giri</h3>
-                            <p>The "Jnanavatar" or Incarnation of Wisdom, and the Guru of Paramahansa Yogananda.</p>
+                            <p>The &quot;Jnanavatar&quot; or Incarnation of Wisdom, and the Guru of Paramahansa Yogananda.</p>
                         </div>
                         <div className="card glass" style={{ padding: 'var(--spacing-md)', textAlign: 'center' }}>
                             <div style={{ height: '200px', borderRadius: '10px', overflow: 'hidden', marginBottom: '1rem' }}>
@@ -64,7 +70,7 @@ export default function AboutPage() {
                         <p style={{ fontWeight: 600, color: 'var(--primary)', marginBottom: '1rem' }}>Founder (105 Years of Devotion)</p>
                         <p style={{ marginBottom: '1.5rem' }}>
                             Swamiji was initiated into the holy path of Kriya Yoga by the great Paramahansa Yogananda himself.
-                            Throughout his long life of 105 years, he remained a steadfast "Karmayogi," blending deep spiritual
+                            Throughout his long life of 105 years, he remained a steadfast &quot;Karmayogi,&quot; blending deep spiritual
                             realization with tireless service to humanity.
                         </p>
                         <p>

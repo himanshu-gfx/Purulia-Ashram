@@ -1,5 +1,11 @@
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Support Our Mission",
+    description: "Contribute to the humanitarian and spiritual mission of the Paramhansa Yogananda Trust Ashram, Purulia. Your donations support schools, healthcare, and Vedic wisdom.",
+};
 
 export default function DonatePage() {
     return (
@@ -26,7 +32,7 @@ export default function DonatePage() {
                             <div style={{ marginBottom: '2rem' }}>
                                 <h4>Ways to Contribute:</h4>
                                 <ul style={{ paddingLeft: '1.5rem', marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                                    <li>• Support a child's education for a year</li>
+                                    <li>• Support a child&apos;s education for a year</li>
                                     <li>• Contribute to the Ashram building fund</li>
                                     <li>• Sponsor a Gita Satsang or community meal</li>
                                     <li>• Donate skills as a volunteer teacher</li>

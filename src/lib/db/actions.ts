@@ -7,8 +7,19 @@ import { eq } from 'drizzle-orm';
 import { revalidatePath } from 'next/cache';
 
 // News Actions
-export async function addNews(data: any) {
-    await db.insert(news).values(data);
+export interface NewsData {
+    title: string;
+    date: string;
+    location: string | null;
+    description: string;
+    imageUrl: string | null;
+}
+
+export async function addNews(data: NewsData) {
+    await db.insert(news).values({
+        ...data,
+        id: crypto.randomUUID()
+    });
     revalidatePath('/');
     revalidatePath('/admin/news');
 }
@@ -20,8 +31,18 @@ export async function deleteNews(id: string) {
 }
 
 // Gallery Actions
-export async function addGalleryItem(data: any) {
-    await db.insert(gallery).values(data);
+export interface GalleryData {
+    title: string;
+    category: string;
+    src: string;
+    className?: string;
+}
+
+export async function addGalleryItem(data: GalleryData) {
+    await db.insert(gallery).values({
+        ...data,
+        id: crypto.randomUUID()
+    });
     revalidatePath('/gallery');
     revalidatePath('/admin/gallery');
 }
@@ -33,7 +54,15 @@ export async function deleteGalleryItem(id: string) {
 }
 
 // Impact Actions
-export async function updateImpactSection(id: string, data: any) {
+export interface ImpactUpdateData {
+    title?: string;
+    content?: string;
+    imageUrl?: string;
+    videoUrl?: string;
+    data?: string;
+}
+
+export async function updateImpactSection(id: string, data: ImpactUpdateData) {
     await db.update(impactSections).set(data).where(eq(impactSections.id, id));
     revalidatePath('/impact');
     revalidatePath('/admin/impact');

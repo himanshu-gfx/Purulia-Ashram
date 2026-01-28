@@ -3,6 +3,7 @@ import { db } from "@/lib/db";
 import { news } from "@/lib/db/schema";
 import { addNews, deleteNews } from "@/lib/db/actions";
 import { Trash2, Plus } from "lucide-react";
+import ImageUploader from "../../../components/admin/ImageUploader";
 
 export default async function AdminNewsPage() {
     const allNews = await db.select().from(news).orderBy(news.createdAt);
@@ -28,7 +29,9 @@ export default async function AdminNewsPage() {
                     <input type="text" name="title" placeholder="Event Title" required style={inputStyle} />
                     <input type="text" name="date" placeholder="Date/Time (e.g. Everyday | 4:00 PM)" required style={inputStyle} />
                     <input type="text" name="location" placeholder="Location" style={inputStyle} />
-                    <input type="text" name="imageUrl" placeholder="Image URL (optional)" style={inputStyle} />
+                    <div style={{ gridColumn: 'span 2' }}>
+                        <ImageUploader name="imageUrl" label="Event Image" />
+                    </div>
                     <textarea name="description" placeholder="Description" required style={{ ...inputStyle, gridColumn: 'span 2' }}></textarea>
                     <button type="submit" className="btn btn-primary" style={{ gridColumn: 'span 2' }}>
                         <Plus size={18} /> Add Event

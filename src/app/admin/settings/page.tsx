@@ -18,8 +18,9 @@ export default function SettingsPage() {
                 setMessage({ text: 'Password updated successfully!', type: 'success' });
                 (document.getElementById('password-form') as HTMLFormElement).reset();
             }
-        } catch (error: any) {
-            setMessage({ text: error.message || 'Failed to update password', type: 'error' });
+        } catch (error) {
+            const err = error as Error;
+            setMessage({ text: err.message || 'Failed to update password', type: 'error' });
         } finally {
             setLoading(false);
         }

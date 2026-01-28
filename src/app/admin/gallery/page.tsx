@@ -1,8 +1,9 @@
-
+// Forced refresh for module resolution 
 import { db } from "@/lib/db";
 import { gallery } from "@/lib/db/schema";
 import { addGalleryItem, deleteGalleryItem } from "@/lib/db/actions";
 import { Trash2, Plus } from "lucide-react";
+import ImageUploader from "../../../components/admin/ImageUploader";
 
 export default async function AdminGalleryPage() {
     const images = await db.select().from(gallery).orderBy(gallery.createdAt);
@@ -26,7 +27,9 @@ export default async function AdminGalleryPage() {
                 }} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                     <input type="text" name="title" placeholder="Image Title" required style={inputStyle} />
                     <input type="text" name="category" placeholder="Category (e.g. Spiritual, Charity)" required style={inputStyle} />
-                    <input type="text" name="src" placeholder="Image Path/URL" required style={{ ...inputStyle, gridColumn: 'span 2' }} />
+                    <div style={{ gridColumn: 'span 2' }}>
+                        <ImageUploader name="src" />
+                    </div>
                     <button type="submit" className="btn btn-primary" style={{ gridColumn: 'span 2' }}>
                         <Plus size={18} /> Add Image
                     </button>

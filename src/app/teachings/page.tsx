@@ -1,5 +1,12 @@
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "The Wisdom of Kriya Yoga",
+    description: "Discover the immortal spiritual technique of Kriya Yoga as taught by Paramahansa Yogananda and preserved at the Purulia Ashram. Path to God-realization.",
+};
 
 export default function TeachingsPage() {
     return (
@@ -27,11 +34,11 @@ export default function TeachingsPage() {
                                 to rejuvenize the brain and spinal centers.
                             </p>
                             <p style={{ marginBottom: '1.5rem' }}>
-                                As taught by Paramahansa Yogananda in his "Autobiography of a Yogi," this technique
+                                As taught by Paramahansa Yogananda in his &quot;Autobiography of a Yogi,&quot; this technique
                                 accelerates spiritual evolution and helps the practitioner achieve a state of union with the Divine.
                             </p>
                             <blockquote style={{ borderLeft: '4px solid var(--accent)', paddingLeft: '1.5rem', fontStyle: 'italic', fontSize: '1.1rem', color: 'var(--primary-dark)' }}>
-                                "Kriya Yoga is the airplane path to God-realization."
+                                &quot;Kriya Yoga is the airplane path to God-realization.&quot;
                             </blockquote>
                         </div>
                         <div style={{ flex: '1 1 300px', backgroundColor: 'var(--primary-dark)', color: 'var(--white)', padding: '2rem', borderRadius: '15px' }}>
@@ -39,7 +46,7 @@ export default function TeachingsPage() {
                             <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                                 <li>✓ Calms the restless mind</li>
                                 <li>✓ Increases mental clarity and focus</li>
-                                <li>✓ Harmonizes the body's energy system</li>
+                                <li>✓ Harmonizes the body&apos;s energy system</li>
                                 <li>✓ Direct experience of inner peace</li>
                             </ul>
                         </div>
@@ -81,7 +88,7 @@ export default function TeachingsPage() {
                             The Paramhansa Yogananda Trust Ashram, Purulia acts as a guardian of Vedic wisdom, propagating the universal values of
                             truth, compassion, and non-violence that form the foundation of Sanatan Dharma.
                         </p>
-                        <a href="/gallery" className="btn btn-accent">View Ashram Traditions</a>
+                        <Link href="/gallery" className="btn btn-accent">View Ashram Traditions</Link>
                     </div>
                 </div>
             </section>

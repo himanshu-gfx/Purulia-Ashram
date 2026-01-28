@@ -3,6 +3,12 @@ import { gallery } from '@/lib/db/schema';
 import { desc } from 'drizzle-orm';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Gallery",
+    description: "A visual journey through the spiritual and social activities of the Paramhansa Yogananda Trust Ashram, Purulia. Captured moments of Kriya Yoga and community service.",
+};
 
 export default async function GalleryPage() {
     const dbImages = await db.select().from(gallery).orderBy(desc(gallery.createdAt));

@@ -6,6 +6,12 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Official website of Paramhansa Yogananda Trust, Purulia. Rooted in Kriya Yoga, dedicated to spiritual enlightenment and humanitarian service.",
+};
 
 export default async function Home() {
   const latestNews = await db.select().from(news).orderBy(desc(news.createdAt));
@@ -20,7 +26,7 @@ export default async function Home() {
         <div className="container fade-in">
           <h2>Our Mission</h2>
           <p style={{ fontStyle: 'italic', color: 'var(--primary)', marginBottom: '1rem', fontSize: 'clamp(1.2rem, 5vw, 1.8rem)' }}>
-            "Ātmano Mokṣārtham Jagat Hitāya Cha"
+            &quot;Ātmano Mokṣārtham Jagat Hitāya Cha&quot;
           </p>
           <p style={{ maxWidth: '800px', margin: '0 auto', color: 'var(--medium-gray)' }}>
             For one’s own spiritual liberation and for the welfare of the world.

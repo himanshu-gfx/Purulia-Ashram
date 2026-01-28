@@ -15,8 +15,20 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://paramhansayoganandatrust.com'),
-  title: "Paramhansa Yogananda Trust, Purulia",
-  description: "Rooted in Kriya Yoga, Dedicated to Service. Founded by Swami Bidyananda Giri.",
+  title: {
+    default: "Paramhansa Yogananda Trust, Purulia | Kriya Yoga & Spiritual Service",
+    template: "%s | Paramhansa Yogananda Trust"
+  },
+  description: "Dedicated to the lineage of Kriya Yoga and selfless service in Purulia. Founded by Swami Bidyananda Giri, inspired by Paramhansa Yogananda.",
+  keywords: ["Paramhansa Yogananda Trust", "Purulia Ashram", "Kriya Yoga India", "Swami Bidyananda Giri", "Spiritual Service", "Yoga Meditation Purulia"],
+  authors: [{ name: "Paramhansa Yogananda Trust" }],
+  creator: "Paramhansa Yogananda Trust",
+  publisher: "Paramhansa Yogananda Trust",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   icons: {
     icon: "/favicon.png",
     apple: "/favicon.png",
@@ -42,6 +54,17 @@ export const metadata: Metadata = {
     title: "Paramhansa Yogananda Trust, Purulia",
     description: "Rooted in Kriya Yoga, Dedicated to Service. Founded by Swami Bidyananda Giri.",
     images: ['/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
