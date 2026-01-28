@@ -1,18 +1,20 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
-export default function LoginPage() {
+function LoginForm() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const [mounted, setMounted] = useState(false);
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const callbackUrl = searchParams.get('callbackUrl') || '/admin';
 
     useEffect(() => {
         setMounted(true);
@@ -33,7 +35,7 @@ export default function LoginPage() {
             if (result?.error) {
                 setError('Invalid username or password');
             } else {
-                router.push('/admin');
+                router.push(callbackUrl);
                 router.refresh();
             }
         } catch {
@@ -302,3 +304,11 @@ const spinnerStyle: React.CSSProperties = {
     borderRadius: '50%',
     animation: 'rotate 0.8s linear infinite',
 };
+
+export default function LoginPage() {
+    return (
+        <Suspense fallback={<div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0f172a', color: '#fff' }}>Loading...</div>}>
+            <LoginForm />
+        </Suspense>
+    );
+}
