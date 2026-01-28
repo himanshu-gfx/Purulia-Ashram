@@ -394,3 +394,72 @@ ul {
   filter: brightness(1.08) contrast(1.05) saturate(1.1);
   transform: scale(1.02);
 }
+
+/* Mobile Optimization Enhancements */
+@media (max-width: 768px) {
+  /* Touch-friendly form inputs */
+  input, textarea, select, button {
+    min-height: 44px;
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+
+  /* Responsive tables */
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Better card grids */
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Improved flex layouts */
+  .flex-between {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  /* Full-width cards on mobile */
+  .card {
+    width: 100%;
+  }
+
+  /* Admin form improvements */
+  form input,
+  form textarea,
+  form select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+  }
+
+  /* Improved touch spacing */
+  li, a, button {
+    padding: 8px 0;
+  }
+}
+
+/* Small phone optimizations */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--spacing-xs);
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-content {
+    padding: 0 var(--spacing-xs);
+  }
+
+  .section {
+    padding: var(--spacing-md) 0;
+  }
+}

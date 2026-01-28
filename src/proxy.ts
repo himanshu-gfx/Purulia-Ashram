@@ -6,7 +6,7 @@ const authMiddleware = withAuth({
     },
 });
 
-export { authMiddleware as proxy };
+export default authMiddleware;
 
 export const config = {
     matcher: ["/admin/:path*"],
