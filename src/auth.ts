@@ -55,7 +55,7 @@ export const authOptions: NextAuthOptions = {
             return token;
         },
     },
-    secret: process.env.NEXTAUTH_SECRET || "fallback-secret-for-build",
+    secret: process.env.NEXTAUTH_SECRET || process.env.AUTH_SECRET || "fallback-secret-for-build",
 };
 
 export const auth = () => getServerSession(authOptions);
