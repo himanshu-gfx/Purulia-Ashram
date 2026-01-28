@@ -19,6 +19,7 @@ export default function Footer() {
                         <li><Link href="/teachings">Kriya Yoga</Link></li>
                         <li><Link href="/impact">Welfare Programs</Link></li>
                         <li><Link href="/donate">Donate</Link></li>
+                        <li><Link href="/login" style={{ opacity: 0.6, fontSize: '0.8rem', marginTop: '0.5rem', display: 'inline-block' }}>CMS Login</Link></li>
                     </ul>
                 </div>
                 <div className="footer-contact">
