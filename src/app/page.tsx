@@ -2,6 +2,10 @@
 import { db } from '@/lib/db';
 import { news } from '@/lib/db/schema';
 import { desc } from 'drizzle-orm';
+import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
+import Footer from '@/components/Footer';
+import Link from 'next/link';
 
 export default async function Home() {
   const latestNews = await db.select().from(news).orderBy(desc(news.createdAt));
@@ -74,10 +78,5 @@ export default async function Home() {
 
       <Footer />
     </main>
-  );
-}
-
-<Footer />
-    </main >
   );
 }

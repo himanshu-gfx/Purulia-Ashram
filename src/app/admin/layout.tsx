@@ -1,7 +1,8 @@
 
-import { auth, signOut } from "@/auth";
+import { auth } from "@/auth";
 import Link from "next/link";
-import { LogOut, Home, Image as ImageIcon, Newspaper, Heart, LayoutDashboard, Settings } from "lucide-react";
+import { Home, Image as ImageIcon, Newspaper, Heart, LayoutDashboard, Settings } from "lucide-react";
+import LogoutButton from "@/components/admin/LogoutButton";
 
 export default async function AdminLayout({
     children,
@@ -51,27 +52,7 @@ export default async function AdminLayout({
                     </Link>
                 </nav>
 
-                <form action={async () => {
-                    'use server';
-                    await signOut();
-                }}>
-                    <button style={{
-                        width: '100%',
-                        padding: '1rem',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        gap: '0.5rem',
-                        backgroundColor: 'rgba(255,255,255,0.05)',
-                        border: 'none',
-                        color: 'white',
-                        borderRadius: '10px',
-                        cursor: 'pointer',
-                        marginTop: '1rem'
-                    }}>
-                        <LogOut size={18} /> Significance Out
-                    </button>
-                </form>
+                <LogoutButton />
             </aside>
 
             {/* Main Content */}

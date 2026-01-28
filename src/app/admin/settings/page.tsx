@@ -1,8 +1,30 @@
 
+'use client';
+
 import { Settings } from "lucide-react";
 import { changePassword } from "@/lib/db/auth-actions";
+import { useState } from "react";
 
 export default function SettingsPage() {
+    const [message, setMessage] = useState<{ text: string, type: 'success' | 'error' } | null>(null);
+    const [loading, setLoading] = useState(false);
+
+    async function handleSubmit(formData: FormData) {
+        setLoading(true);
+        setMessage(null);
+        try {
+            const result = await changePassword(formData);
+            if (result.success) {
+                setMessage({ text: 'Password updated successfully!', type: 'success' });
+                (document.getElementById('password-form') as HTMLFormElement).reset();
+            }
+        } catch (error: any) {
+            setMessage({ text: error.message || 'Failed to update password', type: 'error' });
+        } finally {
+            setLoading(false);
+        }
+    }
+
     return (
         <div>
             <h1 style={{ marginBottom: '2rem' }}>CMS Settings</h1>
@@ -13,7 +35,20 @@ export default function SettingsPage() {
                     <h3 style={{ margin: 0 }}>Change Password</h3>
                 </div>
 
-                <form action={changePassword} style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+                {message && (
+                    <div style={{
+                        padding: '0.8rem',
+                        borderRadius: '8px',
+                        marginBottom: '1rem',
+                        backgroundColor: message.type === 'success' ? '#def7ec' : '#fde8e8',
+                        color: message.type === 'success' ? '#03543f' : '#9b1c1c',
+                        fontSize: '0.9rem'
+                    }}>
+                        {message.text}
+                    </div>
+                )}
+
+                <form id="password-form" action={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
                     <div>
                         <label style={labelStyle}>New Password</label>
                         <input
@@ -24,8 +59,13 @@ export default function SettingsPage() {
                             style={inputStyle}
                         />
                     </div>
-                    <button type="submit" className="btn btn-accent" style={{ padding: '0.8rem' }}>
-                        Update Password
+                    <button
+                        type="submit"
+                        className="btn btn-accent"
+                        disabled={loading}
+                        style={{ padding: '0.8rem', opacity: loading ? 0.7 : 1 }}
+                    >
+                        {loading ? 'Updating...' : 'Update Password'}
                     </button>
                 </form>
             </div>

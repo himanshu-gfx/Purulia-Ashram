@@ -1,7 +1,8 @@
-
 import { db } from '@/lib/db';
 import { gallery } from '@/lib/db/schema';
 import { desc } from 'drizzle-orm';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 export default async function GalleryPage() {
     const dbImages = await db.select().from(gallery).orderBy(desc(gallery.createdAt));

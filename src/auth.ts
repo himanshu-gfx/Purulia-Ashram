@@ -1,12 +1,14 @@
 
 import NextAuth from "next-auth";
+import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { db } from "@/lib/db";
 import { adminUsers } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 import bcrypt from "bcryptjs";
+import { getServerSession } from "next-auth/next";
 
-export const { handlers, auth, signIn, signOut } = NextAuth({
+export const authOptions: NextAuthOptions = {
     providers: [
         CredentialsProvider({
             name: "Credentials",
@@ -40,16 +42,21 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         signIn: "/login",
     },
     callbacks: {
-        authorized({ auth, request: { nextUrl } }) {
-            const isLoggedIn = !!auth?.user;
-            const isOnDashboard = nextUrl.pathname.startsWith("/admin");
-            if (isOnDashboard) {
-                if (isLoggedIn) return true;
-                return false;
-            } else if (isLoggedIn && nextUrl.pathname === "/login") {
-                return Response.redirect(new URL("/admin", nextUrl));
+        async session({ session, token }) {
+            if (session?.user) {
+                (session.user as any).id = token.sub;
             }
-            return true;
+            return session;
+        },
+        async jwt({ token, user }) {
+            if (user) {
+                token.id = user.id;
+            }
+            return token;
         },
     },
-});
+    secret: process.env.NEXTAUTH_SECRET || "fallback-secret-for-build",
+};
+
+export const auth = () => getServerSession(authOptions);
+export default NextAuth(authOptions);
