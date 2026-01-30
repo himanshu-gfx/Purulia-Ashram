@@ -156,8 +156,8 @@ export default function AboutPage() {
                             A unique amalgamation of modern rationalist thoughts with age-old Sanatani Indian ideology was found in Seva Ma.
                         </p>
                         <p style={{ marginBottom: '1rem' }}>
-                            While working as a teacher in Asansol, she had the darshan of her Aradhya Gurudev Shri Shri Vidyananda Ji Maharaj,
-                            who invited her to join Yogoda Satsanga Balika Vidyalaya in Lakhanpur, Purulia. After taking Diksha from Vidyananda Ji,
+                            While working as a teacher in Asansol, she had the darshan of her Aradhya Gurudev Shri Shri Bidyananda Ji Maharaj,
+                            who invited her to join Yogoda Satsanga Balika Vidyalaya in Lakhanpur, Purulia. After taking Diksha from Bidyananda Ji,
                             she took the vows of Sannyas and became fully engrossed in spirituality and Kriya Yoga sadhana.
                         </p>
                         <p style={{ marginBottom: '1rem' }}>
