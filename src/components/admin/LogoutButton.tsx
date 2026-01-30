@@ -4,13 +4,18 @@
 import { signOut } from "next-auth/react";
 import { LogOut } from "lucide-react";
 
-export default function LogoutButton() {
+interface LogoutButtonProps {
+    collapsed?: boolean;
+}
+
+export default function LogoutButton({ collapsed }: LogoutButtonProps) {
     return (
         <button
             onClick={() => signOut({ callbackUrl: '/login' })}
+            title={collapsed ? "Sign Out" : undefined}
             style={{
                 width: '100%',
-                padding: '1rem',
+                padding: collapsed ? '0.8rem' : '1rem',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -20,10 +25,13 @@ export default function LogoutButton() {
                 color: 'white',
                 borderRadius: '10px',
                 cursor: 'pointer',
-                marginTop: '1rem'
+                marginTop: '1rem',
+                transition: 'all 0.2s ease'
             }}
         >
-            <LogOut size={18} /> Sign Out
+            <LogOut size={18} />
+            {!collapsed && <span>Sign Out</span>}
         </button>
     );
 }
+

@@ -40,3 +40,13 @@ export const adminUsers = pgTable("admin_users", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
+
+// Media table to store uploaded images
+export const media = pgTable("media", {
+  id: uuid("id").primaryKey(),
+  filename: varchar("filename", { length: 255 }).notNull(),
+  mimeType: varchar("mime_type", { length: 100 }).notNull(),
+  data: text("data").notNull(), // base64 encoded image data
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+

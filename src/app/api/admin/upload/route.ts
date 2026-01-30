@@ -1,8 +1,8 @@
 
 import { NextRequest, NextResponse } from "next/server";
-import { writeFile, mkdir } from "fs/promises";
-import { join } from "path";
 import { auth } from "@/auth";
+import { db } from "@/lib/db";
+import { media } from "@/lib/db/schema";
 
 export async function POST(request: NextRequest) {
     const session = await auth();
@@ -18,20 +18,26 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
         }
 
+        // Convert file to base64
         const bytes = await file.arrayBuffer();
         const buffer = Buffer.from(bytes);
+        const base64Data = buffer.toString("base64");
 
-        // Create unique filename
-        const filename = `${Date.now()}-${file.name.replace(/\s+/g, "-")}`;
-        const relativePath = `/uploads/${filename}`;
-        const absolutePath = join(process.cwd(), "public", "uploads", filename);
+        // Generate unique ID
+        const id = crypto.randomUUID();
 
-        // Ensure directory exists (redundant but safe)
-        await mkdir(join(process.cwd(), "public", "uploads"), { recursive: true });
+        // Store in database
+        await db.insert(media).values({
+            id,
+            filename: file.name,
+            mimeType: file.type,
+            data: base64Data,
+        });
 
-        await writeFile(absolutePath, buffer);
+        // Return URL that points to our media serving endpoint
+        const url = `/api/media/${id}`;
 
-        return NextResponse.json({ url: relativePath });
+        return NextResponse.json({ url });
     } catch (error) {
         console.error("Upload error:", error);
         return NextResponse.json({ error: "Upload failed" }, { status: 500 });
