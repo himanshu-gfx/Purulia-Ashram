@@ -38,7 +38,13 @@ export default async function GalleryPage() {
         { title: "Shrine Lingam", category: "Spiritual", src: "/images/shrine-lingam.jpg", className: "img-enhance" },
     ];
 
-    const displayImages = dbImages.length > 0 ? dbImages : hardcodedImages;
+    // Combine CMS-uploaded images with hardcoded images (CMS images appear first)
+    const displayImages = [...dbImages.map(img => ({
+        title: img.title,
+        category: img.category,
+        src: img.src,
+        className: img.className || 'img-enhance'
+    })), ...hardcodedImages];
 
     return (
         <main>
