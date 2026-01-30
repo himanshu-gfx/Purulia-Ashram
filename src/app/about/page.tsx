@@ -136,6 +136,43 @@ export default function AboutPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Seva Ma Section */}
+            <section className="section" style={{ backgroundColor: 'var(--off-white)' }}>
+                <div className="container flex-between" style={{ gap: 'var(--spacing-lg)', flexWrap: 'wrap-reverse' }}>
+                    <div style={{ flex: '1 1 400px', height: '450px', borderRadius: '15px', overflow: 'hidden' }} className="flex-center">
+                        <img
+                            src="/images/seva-ma.jpg"
+                            alt="Seva Ma"
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        />
+                    </div>
+                    <div style={{ flex: '1 1 400px' }}>
+                        <h2 style={{ fontSize: '2.5rem' }}>Seva Ma</h2>
+                        <p style={{ fontWeight: 600, color: 'var(--primary)', marginBottom: '1rem' }}>Key Founding Member (1930 - 2014)</p>
+                        <p style={{ marginBottom: '1rem' }}>
+                            Seva Ma was born in 1930 in Kotalipara village of Faridpur district of undivided Bengal.
+                            Her father, Pandit Surendranath Sengupta, was the headmaster of a school in Barisal.
+                            A unique amalgamation of modern rationalist thoughts with age-old Sanatani Indian ideology was found in Seva Ma.
+                        </p>
+                        <p style={{ marginBottom: '1rem' }}>
+                            While working as a teacher in Asansol, she had the darshan of her Aradhya Gurudev Shri Shri Vidyananda Ji Maharaj,
+                            who invited her to join Yogoda Satsanga Balika Vidyalaya in Lakhanpur, Purulia. After taking Diksha from Vidyananda Ji,
+                            she took the vows of Sannyas and became fully engrossed in spirituality and Kriya Yoga sadhana.
+                        </p>
+                        <p style={{ marginBottom: '1rem' }}>
+                            Though she appeared as a thunderbolt character at a glance, she was the epitome of compassion and love.
+                            A stream of tender love and devotion flowed endlessly from within her.
+                            She deeply admired Swami Krishnananda Giri&apos;s selfless service to mankind.
+                        </p>
+                        <p>
+                            In 2014, Seva Ma left her mortal body, taking refuge in the lap of Guruji,
+                            leaving behind a legacy of inspiration for countless seekers on the path of spirituality.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
             <section className="section" style={{ backgroundColor: 'var(--white)' }}>
                 <div className="container">
                     <h2 style={{ textAlign: 'center', marginBottom: 'var(--spacing-lg)' }}>The Paramhansa Yogananda Trust</h2>
