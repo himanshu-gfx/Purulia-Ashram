@@ -115,38 +115,9 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* Keshwananda Section */}
+            {/* Seva Ma Section */}
             <section className="section">
                 <div className="container flex-between" style={{ gap: 'var(--spacing-lg)', flexWrap: 'wrap' }}>
-                    <div style={{ flex: '1 1 400px' }}>
-                        <h2 style={{ fontSize: '2.5rem' }}>Swami Keshwananda Giri Ji</h2>
-                        <p style={{ fontWeight: 600, color: 'var(--primary)', marginBottom: '1rem' }}>Spiritual Mentor & Guide</p>
-                        <p style={{ marginBottom: '1.5rem' }}>
-                            Swami Keshwananda Ji remains a vital pillar of the Paramhansa Yogananda Trust Ashram, Purulia, dedicating his life to
-                            the propagation of Kriya Yoga and the welfare of the local community. His presence
-                            provides a steady source of spiritual strength and guidance to all who visit the Paramhansa Yogananda Trust Ashram, Purulia.
-                        </p>
-                    </div>
-                    <div style={{ flex: '1 1 400px', height: '450px', borderRadius: '15px', overflow: 'hidden' }} className="flex-center">
-                        <img
-                            src="/images/swami-keshavananda.jpg"
-                            alt="Swami Keshwananda Giri Ji"
-                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                        />
-                    </div>
-                </div>
-            </section>
-
-            {/* Seva Ma Section */}
-            <section className="section" style={{ backgroundColor: 'var(--off-white)' }}>
-                <div className="container flex-between" style={{ gap: 'var(--spacing-lg)', flexWrap: 'wrap-reverse' }}>
-                    <div style={{ flex: '1 1 400px', height: '450px', borderRadius: '15px', overflow: 'hidden' }} className="flex-center">
-                        <img
-                            src="/images/seva-ma.jpg"
-                            alt="Seva Ma"
-                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                        />
-                    </div>
                     <div style={{ flex: '1 1 400px' }}>
                         <h2 style={{ fontSize: '2.5rem' }}>Seva Ma</h2>
                         <p style={{ fontWeight: 600, color: 'var(--primary)', marginBottom: '1rem' }}>Key Founding Member (1930 - 2014)</p>
@@ -168,6 +139,35 @@ export default function AboutPage() {
                         <p>
                             In 2014, Seva Ma left her mortal body, taking refuge in the lap of Guruji,
                             leaving behind a legacy of inspiration for countless seekers on the path of spirituality.
+                        </p>
+                    </div>
+                    <div style={{ flex: '1 1 400px', height: '450px', borderRadius: '15px', overflow: 'hidden' }} className="flex-center">
+                        <img
+                            src="/images/seva-ma.jpg"
+                            alt="Seva Ma"
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* Keshwananda Section */}
+            <section className="section" style={{ backgroundColor: 'var(--off-white)' }}>
+                <div className="container flex-between" style={{ gap: 'var(--spacing-lg)', flexWrap: 'wrap-reverse' }}>
+                    <div style={{ flex: '1 1 400px', height: '450px', borderRadius: '15px', overflow: 'hidden' }} className="flex-center">
+                        <img
+                            src="/images/swami-keshavananda.jpg"
+                            alt="Swami Keshwananda Giri Ji"
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        />
+                    </div>
+                    <div style={{ flex: '1 1 400px' }}>
+                        <h2 style={{ fontSize: '2.5rem' }}>Swami Keshwananda Giri Ji</h2>
+                        <p style={{ fontWeight: 600, color: 'var(--primary)', marginBottom: '1rem' }}>Spiritual Mentor &amp; Guide</p>
+                        <p style={{ marginBottom: '1.5rem' }}>
+                            Swami Keshwananda Ji remains a vital pillar of the Paramhansa Yogananda Trust Ashram, Purulia, dedicating his life to
+                            the propagation of Kriya Yoga and the welfare of the local community. His presence
+                            provides a steady source of spiritual strength and guidance to all who visit the Paramhansa Yogananda Trust Ashram, Purulia.
                         </p>
                     </div>
                 </div>
